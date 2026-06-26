@@ -1,0 +1,6 @@
+export type { Formula, Shape, Size, Term, Token, World, WorldObject } from './ast'
+export { LogicError } from './ast'
+export { evaluateFormula, parseFormula } from './evaluator'
+export { describeObject, predicateHelp, predicateNames } from './predicates'
+export { Parser } from './parser'
+export { tokenize } from './tokenizer'

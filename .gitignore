@@ -12,6 +12,13 @@ dist
 dist-ssr
 *.local
 
+# Local study content and copyrighted/private notes
+private-content/**
+!private-content/
+!private-content/README.md
+!private-content/lpl/
+!private-content/lpl/.gitkeep
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

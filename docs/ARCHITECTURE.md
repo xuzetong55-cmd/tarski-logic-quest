@@ -5,15 +5,17 @@ Tarski Logic Quest is a Vite + React + TypeScript app. It is intentionally small
 ## Core Files
 
 ```text
-src/logic.ts
-src/levels.ts
+src/logic/
+src/curriculum/
+src/lpl/
+src/components/
 src/App.tsx
 src/App.css
 ```
 
 ## Logic Engine
 
-`src/logic.ts` contains:
+`src/logic/` contains:
 
 - A tokenizer for Unicode and ASCII logical syntax
 - A recursive-descent parser
@@ -33,7 +35,13 @@ The evaluator supports:
 
 ## Curriculum Data
 
-`src/levels.ts` contains all chapters and levels. Levels are discriminated by `mode`:
+`src/curriculum/` contains the public curriculum:
+
+- `levels.ts`: level data
+- `chapters.ts`: grouped navigation structure
+- `worlds.ts`: reusable Tarski worlds
+
+Levels are discriminated by `mode`:
 
 ```ts
 type LevelMode = 'judge' | 'construct' | 'proof'
@@ -56,15 +64,30 @@ This lets the curriculum grow without rewriting the UI for every new concept.
 - The mode-specific mission panel
 - The formula sandbox
 
+The larger UI pieces live under `src/components/`:
+
+- `components/world/WorldBoard.tsx`
+- `components/mission/MissionPanel.tsx`
+- `components/sandbox/Sandbox.tsx`
+
 `src/App.css` keeps the app as a dense learning workspace rather than a landing page. Cards are used only for bounded tools, candidate choices, and repeated object rows.
+
+## LPL Metadata
+
+`src/lpl/` contains public metadata only:
+
+- `chapterMap.ts`: LPL-compatible chapter structure and placeholders
+- `exerciseSchema.ts`: typed references for local-only exercise notes
+
+Do not commit textbook exercise text. Personal notes and answers belong under `private-content/`, which is ignored by git.
 
 ## Future Refactors
 
 As the project grows, likely split points are:
 
-- `src/components/WorldBoard.tsx`
-- `src/components/MissionPanel.tsx`
-- `src/components/Sandbox.tsx`
-- `src/logic/parser.ts`
-- `src/logic/evaluator.ts`
-- `src/curriculum/levels.ts`
+- `src/logic/propositional/`
+- `src/logic/firstOrder/`
+- `src/logic/proof/`
+- `src/components/boole/`
+- `src/components/fitch/`
+- `src/components/tarski/`

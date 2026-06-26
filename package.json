@@ -1,6 +1,6 @@
 {
   "name": "tarski-logic-quest",
-  "version": "0.1.0",
+  "version": "0.3.0",
   "description": "A Tarski-world based first-order logic learning game with staged levels for semantics, quantifiers, proofs, and automated reasoning.",
   "type": "module",
   "license": "MIT",

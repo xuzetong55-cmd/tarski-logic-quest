@@ -1,6 +1,6 @@
 # Contributing
 
-Tarski Logic Quest is intentionally data-first. Most learning content can be added by editing `src/levels.ts`.
+Tarski Logic Quest is intentionally data-first. Most public learning content can be added by editing `src/curriculum/levels.ts`.
 
 ## Add a Level
 
@@ -20,7 +20,7 @@ Use `proof` when the learner should identify the next proof rule or transformati
 
 ## Add a Predicate
 
-1. Add the predicate name to `predicateNames` in `src/logic.ts`.
+1. Add the predicate name to `predicateNames` in `src/logic/predicates.ts`.
 2. Add a help example to `predicateHelp`.
 3. Implement the semantic case in `evaluatePredicate`.
 4. Add at least one level that exercises the predicate.
@@ -45,3 +45,13 @@ npm run lint
 - Lint passes with `npm run lint`.
 - New levels are reachable from the chapter list.
 - The sandbox still works on the affected world.
+
+## Private LPL Notes
+
+Do not commit copyrighted exercise text or personal answer notes. Put local-only study material in:
+
+```text
+private-content/lpl/
+```
+
+That directory is ignored by git except for the placeholder and README.

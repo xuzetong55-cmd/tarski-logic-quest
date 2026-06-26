@@ -71,6 +71,24 @@ SameShape, SameSize
 Adjacent, Between
 ```
 
+## LPL-Compatible Local Study
+
+This repository is designed to support a personal study workflow for Language, Proof and Logic without publishing copyrighted textbook content.
+
+Public code includes:
+
+- LPL chapter metadata in `src/lpl/chapterMap.ts`
+- Exercise metadata types in `src/lpl/exerciseSchema.ts`
+- A private-content convention for local-only notes
+
+Private local files belong under:
+
+```text
+private-content/lpl/
+```
+
+Everything inside `private-content/` is ignored by git except the local README and placeholder. Put your personal exercise notes, proof attempts, and custom world files there.
+
 ## Development
 
 ```bash
@@ -80,8 +98,9 @@ npm run lint
 
 Important files:
 
-- `src/logic.ts`: tokenizer, parser, semantic evaluator, predicates
-- `src/levels.ts`: chapters and level data
+- `src/logic/`: tokenizer, parser, semantic evaluator, predicates
+- `src/curriculum/`: chapters, worlds, and level data
+- `src/lpl/`: LPL-compatible metadata schema and chapter map
 - `src/App.tsx`: learning interface and task-mode UI
 - `src/App.css`: application layout and visual system
 
@@ -89,7 +108,7 @@ See `docs/ARCHITECTURE.md` for the internal structure and `CONTRIBUTING.md` for 
 
 ## Roadmap
 
-The current project is version `0.1.0`: a playable, structured curriculum. The next major step is proof mode 2.0: step-by-step proof construction rather than multiple-choice proof-rule training.
+The current project is version `0.3.0`: a playable structured curriculum with a maintainable code layout and local-only LPL study scaffold. The next major track is Boole mode: truth tables, tautology checks, equivalence, and entailment.
 
 See `ROADMAP.md` for the longer plan.
 
