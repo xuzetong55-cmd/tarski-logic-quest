@@ -36,6 +36,15 @@ Open:
 http://127.0.0.1:5173/
 ```
 
+## Build A Local macOS App
+
+```bash
+npm run dist:mac
+open "release/Tarski Logic Quest.app"
+```
+
+The generated app is a lightweight local launcher. It serves the bundled `dist/` files from `127.0.0.1:17673` and opens them in your browser. No internet connection is required after the app has been built.
+
 ## Formula Syntax
 
 Unicode symbols are supported:
@@ -108,7 +117,7 @@ See `docs/ARCHITECTURE.md` for the internal structure and `CONTRIBUTING.md` for 
 
 ## Roadmap
 
-The current project is version `0.3.0`: a playable structured curriculum with a maintainable code layout and local-only LPL study scaffold. The next major track is Boole mode: truth tables, tautology checks, equivalence, and entailment.
+The current project is version `0.3.1`: a playable structured curriculum with a maintainable code layout, local-only LPL study scaffold, and lightweight macOS app packaging. The next major track is Boole mode: truth tables, tautology checks, equivalence, and entailment.
 
 See `ROADMAP.md` for the longer plan.
 

@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.3.1
+
+- Added a lightweight macOS app launcher package.
+- Added `npm run dist:mac` to build `release/Tarski Logic Quest.app`.
+- The app starts a local static server on `127.0.0.1:17673` and opens the bundled app in the browser.
+- Kept generated app artifacts out of git with `release/`.
+
 ## 0.3.0
 
 - Split the logic engine into AST, tokenizer, parser, evaluator, and predicates modules.
