@@ -2,6 +2,7 @@ const fs = require('node:fs')
 const path = require('node:path')
 
 const root = path.resolve(__dirname, '..')
+const packageJson = require(path.join(root, 'package.json'))
 const releaseDir = path.join(root, 'release')
 const appPath = path.join(releaseDir, 'Tarski Logic Quest.app')
 const contentsDir = path.join(appPath, 'Contents')
@@ -9,6 +10,8 @@ const macosDir = path.join(contentsDir, 'MacOS')
 const resourcesDir = path.join(contentsDir, 'Resources')
 const distSource = path.join(root, 'dist')
 const distTarget = path.join(resourcesDir, 'dist')
+const iconSource = path.join(root, 'assets', 'app-icon.icns')
+const iconTarget = path.join(resourcesDir, 'AppIcon.icns')
 const executablePath = path.join(macosDir, 'Tarski Logic Quest')
 const serverPath = path.join(resourcesDir, 'server.cjs')
 
@@ -16,10 +19,15 @@ if (!fs.existsSync(distSource)) {
   throw new Error('dist/ does not exist. Run npm run build first.')
 }
 
+if (!fs.existsSync(iconSource)) {
+  throw new Error('assets/app-icon.icns does not exist. Run npm run icon first.')
+}
+
 fs.rmSync(appPath, { force: true, recursive: true })
 fs.mkdirSync(macosDir, { recursive: true })
 fs.mkdirSync(resourcesDir, { recursive: true })
 fs.cpSync(distSource, distTarget, { recursive: true })
+fs.copyFileSync(iconSource, iconTarget)
 
 fs.writeFileSync(
   path.join(contentsDir, 'Info.plist'),
@@ -35,6 +43,8 @@ fs.writeFileSync(
   <string>Tarski Logic Quest</string>
   <key>CFBundleIdentifier</key>
   <string>com.xuzetong.tarskilogicquest.launcher</string>
+  <key>CFBundleIconFile</key>
+  <string>AppIcon</string>
   <key>CFBundleInfoDictionaryVersion</key>
   <string>6.0</string>
   <key>CFBundleName</key>
@@ -42,9 +52,9 @@ fs.writeFileSync(
   <key>CFBundlePackageType</key>
   <string>APPL</string>
   <key>CFBundleShortVersionString</key>
-  <string>0.3.0</string>
+  <string>${packageJson.version}</string>
   <key>CFBundleVersion</key>
-  <string>0.3.0</string>
+  <string>${packageJson.version}</string>
   <key>LSMinimumSystemVersion</key>
   <string>10.13</string>
 </dict>

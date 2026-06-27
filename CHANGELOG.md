@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.3.2
+
+- Added a generated macOS app icon for Tarski Logic Quest.
+- Wired `CFBundleIconFile` into the local app bundle.
+- Added `npm run icon` and made `npm run dist:mac` regenerate icon assets before packaging.
+
 ## 0.3.1
 
 - Added a lightweight macOS app launcher package.

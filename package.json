@@ -1,6 +1,6 @@
 {
   "name": "tarski-logic-quest",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "A Tarski-world based first-order logic learning game with staged levels for semantics, quantifiers, proofs, and automated reasoning.",
   "author": "xuzetong",
   "type": "module",
@@ -17,7 +17,8 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "desktop": "npm run dist:mac && open \"release/Tarski Logic Quest.app\"",
-    "dist:mac": "npm run build && node scripts/package-mac.cjs",
+    "icon": "node scripts/generate-icon.cjs && iconutil -c icns build/app-icon.iconset -o assets/app-icon.icns",
+    "dist:mac": "npm run build && npm run icon && node scripts/package-mac.cjs",
     "lint": "oxlint",
     "preview": "vite preview"
   },

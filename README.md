@@ -45,6 +45,8 @@ open "release/Tarski Logic Quest.app"
 
 The generated app is a lightweight local launcher. It serves the bundled `dist/` files from `127.0.0.1:17673` and opens them in your browser. No internet connection is required after the app has been built.
 
+The macOS bundle includes a generated `.icns` icon from `assets/app-icon.icns`. Run `npm run icon` if you only want to regenerate the icon assets.
+
 ## Formula Syntax
 
 Unicode symbols are supported:
@@ -117,7 +119,7 @@ See `docs/ARCHITECTURE.md` for the internal structure and `CONTRIBUTING.md` for 
 
 ## Roadmap
 
-The current project is version `0.3.1`: a playable structured curriculum with a maintainable code layout, local-only LPL study scaffold, and lightweight macOS app packaging. The next major track is Boole mode: truth tables, tautology checks, equivalence, and entailment.
+The current project is version `0.3.2`: a playable structured curriculum with a maintainable code layout, local-only LPL study scaffold, lightweight macOS app packaging, and a generated local app icon. The next major track is Boole mode: truth tables, tautology checks, equivalence, and entailment.
 
 See `ROADMAP.md` for the longer plan.
 
