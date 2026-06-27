@@ -14,6 +14,7 @@ const iconSource = path.join(root, 'assets', 'app-icon.icns')
 const iconTarget = path.join(resourcesDir, 'AppIcon.icns')
 const executablePath = path.join(macosDir, 'Tarski Logic Quest')
 const serverPath = path.join(resourcesDir, 'server.cjs')
+const appVersion = packageJson.version
 
 if (!fs.existsSync(distSource)) {
   throw new Error('dist/ does not exist. Run npm run build first.')
@@ -70,6 +71,7 @@ const path = require('node:path')
 
 const root = process.argv[2]
 const port = Number(process.argv[3] || 17673)
+const version = process.argv[4] || 'dev'
 const mimeTypes = {
   '.css': 'text/css; charset=utf-8',
   '.html': 'text/html; charset=utf-8',
@@ -87,6 +89,12 @@ function resolveFile(urlPath) {
 }
 
 http.createServer((request, response) => {
+  if ((request.url || '/').split('?')[0] === '/__tarski_version') {
+    response.setHeader('Content-Type', 'text/plain; charset=utf-8')
+    response.end(version)
+    return
+  }
+
   const filePath = resolveFile(request.url || '/')
   response.setHeader('Content-Type', mimeTypes[path.extname(filePath)] || 'application/octet-stream')
   fs.createReadStream(filePath).pipe(response)
@@ -104,6 +112,8 @@ DIST_DIR="$APP_DIR/Resources/dist"
 SERVER_FILE="$APP_DIR/Resources/server.cjs"
 PORT="17673"
 URL="http://127.0.0.1:$PORT/"
+VERSION_URL="http://127.0.0.1:$PORT/__tarski_version"
+APP_VERSION="${appVersion}"
 LOG_DIR="$HOME/Library/Logs/Tarski Logic Quest"
 LOG_FILE="$LOG_DIR/server.log"
 
@@ -120,8 +130,19 @@ else
   exit 1
 fi
 
+CURRENT_VERSION="$(curl -fsS "$VERSION_URL" 2>/dev/null || true)"
+if [ "$CURRENT_VERSION" != "$APP_VERSION" ]; then
+  if command -v lsof >/dev/null 2>&1; then
+    PID_LIST="$(lsof -tiTCP:$PORT -sTCP:LISTEN 2>/dev/null || true)"
+    if [ -n "$PID_LIST" ]; then
+      kill $PID_LIST 2>/dev/null || true
+      sleep 0.2
+    fi
+  fi
+fi
+
 if ! curl -fsS "$URL" >/dev/null 2>&1; then
-  nohup "$NODE_BIN" "$SERVER_FILE" "$DIST_DIR" "$PORT" > "$LOG_FILE" 2>&1 &
+  nohup "$NODE_BIN" "$SERVER_FILE" "$DIST_DIR" "$PORT" "$APP_VERSION" > "$LOG_FILE" 2>&1 &
   for _ in {1..30}; do
     if curl -fsS "$URL" >/dev/null 2>&1; then
       break

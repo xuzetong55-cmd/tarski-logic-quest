@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.4.0
+
+- Added Boole Mode as a propositional-logic workbench.
+- Added a propositional parser and truth-table evaluator.
+- Added tautology, contradiction, and contingency classification.
+- Added formula equivalence and entailment checks with counterexample rows.
+- Added a Tarski/Boole workspace switch in the main app.
+
 ## 0.3.2
 
 - Added a generated macOS app icon for Tarski Logic Quest.

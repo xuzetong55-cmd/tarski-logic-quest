@@ -31,6 +31,35 @@
   font-weight: 760;
 }
 
+.mode-switch {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 8px;
+  margin: 24px 0 0;
+}
+
+.mode-switch button,
+.boole-tabs button {
+  min-height: 40px;
+  border: 1px solid #69775d;
+  border-radius: 7px;
+  font: inherit;
+  font-weight: 760;
+  cursor: pointer;
+}
+
+.mode-switch button {
+  background: #151915;
+  color: #f4f1e8;
+}
+
+.mode-switch button.active,
+.mode-switch button:hover {
+  border-color: #e2b84f;
+  background: #30382f;
+  color: #e2b84f;
+}
+
 .eyebrow {
   margin: 0 0 8px;
   font-size: 12px;
@@ -566,6 +595,156 @@
   white-space: normal;
 }
 
+.boole-workbench {
+  display: grid;
+  gap: 20px;
+}
+
+.boole-header,
+.boole-two-col {
+  display: grid;
+  gap: 16px;
+}
+
+.boole-header {
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+}
+
+.boole-header h2 {
+  margin: 0;
+  font-size: 34px;
+  line-height: 1.1;
+}
+
+.boole-tabs {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.boole-tabs button {
+  background: #ffffff;
+  color: #202225;
+  padding: 0 14px;
+}
+
+.boole-tabs button.active,
+.boole-tabs button:hover {
+  border-color: #315d73;
+  background: #edf5f7;
+}
+
+.boole-panel {
+  display: grid;
+  gap: 16px;
+  border: 1px solid #d8d4c9;
+  border-radius: 8px;
+  background: #ffffff;
+  padding: 18px;
+}
+
+.boole-two-col {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+}
+
+.boole-input {
+  display: grid;
+  gap: 8px;
+}
+
+.boole-input span {
+  color: #6c6254;
+  font-size: 13px;
+  font-weight: 760;
+}
+
+.boole-input input,
+.boole-input textarea {
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid #c7c1b3;
+  border-radius: 7px;
+  color: #202225;
+  background: #fbfaf6;
+  padding: 11px 12px;
+  font: 16px/1.4 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+.boole-input textarea {
+  min-height: 132px;
+  resize: vertical;
+}
+
+.boole-summary {
+  display: grid;
+  gap: 4px;
+  padding: 14px;
+  border: 1px solid #c8d6dc;
+  border-radius: 8px;
+  background: #edf5f7;
+}
+
+.boole-summary strong {
+  font-size: 20px;
+}
+
+.boole-summary span {
+  color: #3f4b52;
+}
+
+.truth-table-wrap {
+  max-width: 100%;
+  overflow: auto;
+  border: 1px solid #d8d4c9;
+  border-radius: 8px;
+}
+
+.truth-table {
+  width: 100%;
+  min-width: 560px;
+  border-collapse: collapse;
+  background: #ffffff;
+}
+
+.truth-table th,
+.truth-table td {
+  border-bottom: 1px solid #ebe7dd;
+  padding: 10px 12px;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.truth-table th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background: #f1eee5;
+  color: #3a352d;
+  font-size: 13px;
+}
+
+.truth-table td {
+  font-weight: 700;
+}
+
+.truth-table tr:last-child td {
+  border-bottom: 0;
+}
+
+.truth-table tr.highlight td {
+  background: #fff1e9;
+  color: #8a4a2f;
+}
+
+.boole-error {
+  margin-top: 0;
+}
+
+.boole-symbols {
+  margin-bottom: 0;
+}
+
 @media (max-width: 1040px) {
   .app-shell {
     grid-template-columns: 1fr;
@@ -585,8 +764,14 @@
   }
 
   .study-grid,
+  .boole-two-col,
   .sandbox-grid {
     grid-template-columns: 1fr;
+  }
+
+  .boole-header {
+    grid-template-columns: 1fr;
+    align-items: stretch;
   }
 
   .lesson-band {
@@ -614,6 +799,10 @@
   }
 
   .topbar h2 {
+    font-size: 28px;
+  }
+
+  .boole-header h2 {
     font-size: 28px;
   }
 

@@ -12,6 +12,7 @@ The project is designed as a long-term learning tool: start with truth in a worl
 - Tarski-world boards with shapes, sizes, positions, and relations
 - A sandbox for testing formulas against the current world
 - Unicode and ASCII formula syntax
+- Boole mode for propositional truth tables, classification, equivalence, and entailment
 
 ## Chapters
 
@@ -22,6 +23,15 @@ The project is designed as a long-term learning tool: start with truth in a worl
 - Chapter 4: Natural Deduction
 - Chapter 5: Automated Reasoning and Normal Forms
 - Chapter 6: Metatheory Map
+
+## Boole Mode
+
+The app includes a propositional-logic workbench for the LPL-style Boole track:
+
+- Truth table generation
+- Tautology, contradiction, and contingency classification
+- Formula equivalence checks
+- Entailment checks with counterexample rows
 
 ## Run Locally
 
@@ -119,7 +129,7 @@ See `docs/ARCHITECTURE.md` for the internal structure and `CONTRIBUTING.md` for 
 
 ## Roadmap
 
-The current project is version `0.3.2`: a playable structured curriculum with a maintainable code layout, local-only LPL study scaffold, lightweight macOS app packaging, and a generated local app icon. The next major track is Boole mode: truth tables, tautology checks, equivalence, and entailment.
+The current project is version `0.4.0`: a playable structured curriculum with a maintainable code layout, local-only LPL study scaffold, lightweight macOS app packaging, a generated local app icon, and a Boole-mode MVP for propositional logic. The next major track is the Tarski world builder.
 
 See `ROADMAP.md` for the longer plan.
 

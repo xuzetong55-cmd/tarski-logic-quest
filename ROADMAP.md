@@ -27,6 +27,7 @@
 - Truth table generation
 - Tautology, contradiction, contingency checks
 - Equivalence and entailment checks
+- Tarski/Boole workspace switch
 
 ## 0.5.0: Tarski World Builder
 
