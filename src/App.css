@@ -276,6 +276,21 @@
     #fbfaf6;
 }
 
+button.cell {
+  width: 100%;
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+}
+
+button.cell:hover,
+button.cell.selected {
+  border-color: #315d73;
+  background:
+    linear-gradient(135deg, rgba(49, 93, 115, 0.12), transparent 45%),
+    #edf5f7;
+}
+
 .coord {
   position: absolute;
   top: 5px;
@@ -347,6 +362,20 @@
   background: #fbfaf6;
 }
 
+button.object-row {
+  width: 100%;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+button.object-row:hover,
+button.object-row.selected {
+  border-color: #315d73;
+  background: #edf5f7;
+}
+
 .object-row .piece {
   width: 32px;
   height: 32px;
@@ -380,6 +409,7 @@
 .choice-button,
 .primary-button,
 .ghost-button,
+.danger-button,
 .symbol-bank button,
 .candidate-button,
 .proof-option {
@@ -482,6 +512,11 @@
   color: #ffffff;
 }
 
+.primary-button.compact {
+  width: auto;
+  padding: 0 14px;
+}
+
 .primary-button:disabled {
   cursor: not-allowed;
   opacity: 0.45;
@@ -492,6 +527,13 @@
   background: #ffffff;
   color: #202225;
   padding: 0 14px;
+}
+
+.danger-button {
+  width: 100%;
+  border: 1px solid #c98260;
+  background: #fff1e9;
+  color: #8a4a2f;
 }
 
 .feedback {
@@ -745,6 +787,146 @@
   margin-bottom: 0;
 }
 
+.builder-workbench {
+  display: grid;
+  gap: 20px;
+}
+
+.builder-header {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.builder-header h2 {
+  margin: 0;
+  font-size: 34px;
+  line-height: 1.1;
+}
+
+.builder-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.builder-grid {
+  display: grid;
+  grid-template-columns: minmax(420px, 1.15fr) minmax(320px, 0.85fr);
+  gap: 20px;
+}
+
+.builder-board-panel,
+.builder-inspector,
+.builder-lab,
+.builder-json {
+  border: 1px solid #d8d4c9;
+  border-radius: 8px;
+  background: #ffffff;
+  padding: 18px;
+}
+
+.editable-board {
+  min-height: 430px;
+}
+
+.board-size-controls,
+.coordinate-fields {
+  display: grid;
+  gap: 10px;
+}
+
+.board-size-controls {
+  grid-template-columns: repeat(2, minmax(0, 120px));
+  margin-bottom: 14px;
+}
+
+.coordinate-fields {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.board-size-controls label,
+.builder-field {
+  display: grid;
+  gap: 7px;
+}
+
+.board-size-controls span,
+.builder-field span,
+.builder-lab label span {
+  color: #6c6254;
+  font-size: 13px;
+  font-weight: 760;
+}
+
+.board-size-controls input,
+.builder-field input,
+.builder-lab input,
+.builder-json textarea {
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid #c7c1b3;
+  border-radius: 7px;
+  background: #fbfaf6;
+  color: #202225;
+  padding: 10px 12px;
+  font: 16px/1.4 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+.builder-inspector {
+  display: grid;
+  align-content: start;
+  gap: 14px;
+}
+
+.segmented-row {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.segmented-row button {
+  min-height: 38px;
+  border: 1px solid #c7c1b3;
+  border-radius: 7px;
+  background: #fbfaf6;
+  color: #202225;
+  font: inherit;
+  font-weight: 760;
+  cursor: pointer;
+}
+
+.segmented-row button.active,
+.segmented-row button:hover {
+  border-color: #47623d;
+  background: #e3ecd9;
+}
+
+.empty-builder-state {
+  border: 1px solid #ebe7dd;
+  border-radius: 7px;
+  background: #fbfaf6;
+  color: #6c6254;
+  padding: 14px;
+}
+
+.builder-object-list {
+  grid-template-columns: 1fr;
+  margin-top: 0;
+}
+
+.builder-lab,
+.builder-json {
+  display: grid;
+  gap: 14px;
+}
+
+.builder-json textarea {
+  min-height: 220px;
+  resize: vertical;
+}
+
 @media (max-width: 1040px) {
   .app-shell {
     grid-template-columns: 1fr;
@@ -764,6 +946,7 @@
   }
 
   .study-grid,
+  .builder-grid,
   .boole-two-col,
   .sandbox-grid {
     grid-template-columns: 1fr;
@@ -772,6 +955,15 @@
   .boole-header {
     grid-template-columns: 1fr;
     align-items: stretch;
+  }
+
+  .builder-header {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .builder-actions {
+    flex-wrap: wrap;
   }
 
   .lesson-band {
@@ -803,6 +995,10 @@
   }
 
   .boole-header h2 {
+    font-size: 28px;
+  }
+
+  .builder-header h2 {
     font-size: 28px;
   }
 

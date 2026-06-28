@@ -31,11 +31,13 @@
 
 ## 0.5.0: Tarski World Builder
 
-- Drag objects on the board
+- Move objects on the board
 - Add/remove objects
 - Edit object shape and size
 - Save custom worlds
 - Solve construction levels by building a world directly
+- Import/export JSON world files
+- Live formula checks against custom worlds
 
 ## 0.6.0: Tarski Exercise Engine
 

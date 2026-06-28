@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.5.0
+
+- Added Tarski World Builder as a new workspace mode.
+- Added editable worlds with object creation, deletion, movement, shape, size, name, and coordinate controls.
+- Added live first-order formula checking against the custom world.
+- Added local storage persistence for the custom builder world.
+- Added JSON import and export for local world files.
+- Improved the local macOS launcher so version changes restart the bundled local server.
+
 ## 0.4.0
 
 - Added Boole Mode as a propositional-logic workbench.

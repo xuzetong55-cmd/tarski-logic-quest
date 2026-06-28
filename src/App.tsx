@@ -7,9 +7,10 @@ import { Sandbox } from './components/sandbox/Sandbox'
 import { WorldBoard } from './components/world/WorldBoard'
 import { evaluateFormula, type World } from './logic'
 import { BooleWorkbench } from './components/boole/BooleWorkbench'
+import { WorldBuilder } from './components/world-builder/WorldBuilder'
 
 type Choice = 'true' | 'false' | null
-type WorkspaceMode = 'tarski' | 'boole'
+type WorkspaceMode = 'tarski' | 'boole' | 'builder'
 
 const storageKey = 'tarski-logic-quest-progress'
 
@@ -102,6 +103,13 @@ function App() {
           >
             Boole 工作台
           </button>
+          <button
+            className={workspaceMode === 'builder' ? 'active' : ''}
+            type="button"
+            onClick={() => setWorkspaceMode('builder')}
+          >
+            Tarski 建造器
+          </button>
         </div>
 
         <div className="progress-block">
@@ -140,6 +148,8 @@ function App() {
       <section className="workspace">
         {workspaceMode === 'boole' ? (
           <BooleWorkbench />
+        ) : workspaceMode === 'builder' ? (
+          <WorldBuilder />
         ) : (
           <>
             <header className="topbar">
