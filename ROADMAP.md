@@ -42,9 +42,10 @@
 ## 0.6.0: Tarski Exercise Engine
 
 - Sentence-set satisfaction
-- Model and countermodel construction
-- Better quantifier diagnostics
+- Model and countermodel status
+- Quantifier witnesses and failing-object diagnostics
 - Local world file binding for LPL-compatible exercises
+- Refreshed workspace visual system
 
 ## 0.7.0: Proof Mode 2.0
 

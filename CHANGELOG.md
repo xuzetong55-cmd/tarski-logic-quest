@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.6.0
+
+- Added Tarski Exercise Engine as a sentence-set satisfaction workbench.
+- Added model and countermodel status for a world against multiple first-order sentences.
+- Added per-sentence diagnostics with quantifier witnesses and failing objects for top-level quantifiers.
+- Added local world binding from the Tarski World Builder plus JSON import/export in the exercise engine.
+- Refreshed the visual system with cleaner workspace panels, state colors, and responsive exercise results.
+
 ## 0.5.0
 
 - Added Tarski World Builder as a new workspace mode.

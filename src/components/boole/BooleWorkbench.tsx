@@ -70,9 +70,9 @@ export function BooleWorkbench() {
 
   return (
     <section className="boole-workbench">
-      <header className="boole-header">
+      <header className="boole-header workspace-header">
         <div>
-          <p className="eyebrow">Boole Mode · 0.4.0</p>
+          <p className="eyebrow">Boole Mode · 0.6.0</p>
           <h2>命题逻辑工作台</h2>
         </div>
         <div className="boole-tabs" role="tablist" aria-label="Boole 工具">

@@ -14,6 +14,7 @@ The project is designed as a long-term learning tool: start with truth in a worl
 - Unicode and ASCII formula syntax
 - Boole mode for propositional truth tables, classification, equivalence, and entailment
 - Tarski world builder for editable worlds, live formula checks, and local JSON world files
+- Tarski exercise engine for sentence-set satisfaction, countermodels, and quantifier diagnostics
 
 ## Chapters
 
@@ -44,6 +45,17 @@ The app includes a local world builder for experimenting with model construction
 - Check first-order formulas against the current world
 - Save the builder world in local storage
 - Import and export worlds as JSON
+
+## Tarski Exercise Engine
+
+The exercise engine checks sentence sets against a selected Tarski world:
+
+- Evaluate multiple first-order sentences at once
+- Mark whether the current world is a model of the set
+- Show countermodel rows when sentences fail
+- Report witnesses for top-level existential formulas
+- Report failing objects for top-level universal formulas
+- Bind to the locally saved world from the builder or import a world JSON file
 
 ## Run Locally
 
@@ -141,7 +153,7 @@ See `docs/ARCHITECTURE.md` for the internal structure and `CONTRIBUTING.md` for 
 
 ## Roadmap
 
-The current project is version `0.5.0`: a playable structured curriculum with a maintainable code layout, local-only LPL study scaffold, lightweight macOS app packaging, Boole mode, and a Tarski world builder. The next major track is the Tarski exercise engine for sentence-set satisfaction and model/countermodel construction.
+The current project is version `0.6.0`: a playable structured curriculum with a maintainable code layout, local-only LPL study scaffold, lightweight macOS app packaging, Boole mode, a Tarski world builder, and a sentence-set exercise engine. The next major track is Proof Mode 2.0.
 
 See `ROADMAP.md` for the longer plan.
 

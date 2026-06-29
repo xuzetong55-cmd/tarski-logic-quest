@@ -7,10 +7,11 @@ import { Sandbox } from './components/sandbox/Sandbox'
 import { WorldBoard } from './components/world/WorldBoard'
 import { evaluateFormula, type World } from './logic'
 import { BooleWorkbench } from './components/boole/BooleWorkbench'
+import { ExerciseWorkbench } from './components/exercise/ExerciseWorkbench'
 import { WorldBuilder } from './components/world-builder/WorldBuilder'
 
 type Choice = 'true' | 'false' | null
-type WorkspaceMode = 'tarski' | 'boole' | 'builder'
+type WorkspaceMode = 'tarski' | 'exercise' | 'builder' | 'boole'
 
 const storageKey = 'tarski-logic-quest-progress'
 
@@ -97,18 +98,25 @@ function App() {
             Tarski 关卡
           </button>
           <button
-            className={workspaceMode === 'boole' ? 'active' : ''}
+            className={workspaceMode === 'exercise' ? 'active' : ''}
             type="button"
-            onClick={() => setWorkspaceMode('boole')}
+            onClick={() => setWorkspaceMode('exercise')}
           >
-            Boole 工作台
+            Tarski 练习
           </button>
           <button
             className={workspaceMode === 'builder' ? 'active' : ''}
             type="button"
             onClick={() => setWorkspaceMode('builder')}
           >
-            Tarski 建造器
+            世界建造器
+          </button>
+          <button
+            className={workspaceMode === 'boole' ? 'active' : ''}
+            type="button"
+            onClick={() => setWorkspaceMode('boole')}
+          >
+            Boole 工作台
           </button>
         </div>
 
@@ -148,6 +156,8 @@ function App() {
       <section className="workspace">
         {workspaceMode === 'boole' ? (
           <BooleWorkbench />
+        ) : workspaceMode === 'exercise' ? (
+          <ExerciseWorkbench />
         ) : workspaceMode === 'builder' ? (
           <WorldBuilder />
         ) : (

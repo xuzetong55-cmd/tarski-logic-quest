@@ -219,12 +219,12 @@ export function WorldBuilder() {
 
   return (
     <section className="builder-workbench">
-      <header className="builder-header">
+      <header className="builder-header workspace-header">
         <div>
-          <p className="eyebrow">Tarski Builder · 0.5.0</p>
+          <p className="eyebrow">Tarski Builder · 0.6.0</p>
           <h2>世界建造器</h2>
         </div>
-        <div className="builder-actions">
+        <div className="builder-actions workspace-actions">
           <button className="ghost-button" type="button" onClick={resetWorld}>重置世界</button>
           <button className="primary-button compact" type="button" onClick={addObject} disabled={!firstEmptyCell(world)}>添加对象</button>
         </div>

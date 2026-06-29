@@ -1,6 +1,6 @@
 {
   "name": "tarski-logic-quest",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "description": "A Tarski-world based first-order logic learning game with staged levels for semantics, quantifiers, proofs, and automated reasoning.",
   "author": "xuzetong",
   "type": "module",
